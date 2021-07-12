@@ -11,6 +11,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.util.Arrays;
+import java.util.Scanner;
 
 
 public class BasicTransformations {
@@ -47,6 +48,12 @@ public class BasicTransformations {
 
         //Also print first five rows
         transformedDf.show(5);
+
+        //Include User input break to simulate a long running Spark Application.
+        Scanner sc= new Scanner(System.in);
+        LOGGER.info("Write anything and hit enter to allow application to proceed...");
+        sc.next();
+
 
         //Filter food and keep ones belonging to the Herbs subgroup
         Dataset<Row> filteredDf = applyFilerFunction(transformedDf);
